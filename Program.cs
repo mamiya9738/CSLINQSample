@@ -29,6 +29,8 @@ var listTest =  ( from right in listA
             select right).ToList();
 
 // デバッグ出力
+// Test3
+
 foreach(var obj in listTest)
 {
     Console.WriteLine(obj.Name);
@@ -44,6 +46,9 @@ var listTest2 =  ( from right in listA
             select tj).ToList();
 
 // デバッグ出力
+// Test3
+// Test3'
+
 foreach(var obj in listTest2)
 {
     Console.WriteLine(obj.Name);
