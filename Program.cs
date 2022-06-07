@@ -1,14 +1,14 @@
 ﻿// テストデータA
 var listA = new List<A>(){
-        new A(){ Key = 1, Name = "Name1",},
-        new A(){ Key = 2 , Name = "Name2",},
-        new A(){ Key = 3 , Name = "Name3",},
-        new A(){ Key = 4 , Name = "Name4",},
-        new A(){ Key = 5 , Name = "Name5",},
-        new A(){ Key = 6 , Name = "Name6",},
-        new A(){ Key = 7 , Name = "Name7",},
-        new A(){ Key = 8 , Name = "Name8",},
-        new A(){ Key = 9 , Name = "Name9",},
+        new A(){ Key = 1 , No = 10 , Name = "Name1",},
+        new A(){ Key = 2 , No = 10 , Name = "Name2",},
+        new A(){ Key = 3 , No = 10 , Name = "Name3",},
+        new A(){ Key = 4 , No = 10 , Name = "Name4",},
+        new A(){ Key = 5 , No = 10 , Name = "Name5",},
+        new A(){ Key = 6 , No = 20 , Name = "Name6",},
+        new A(){ Key = 7 , No = 20 , Name = "Name7",},
+        new A(){ Key = 8 , No = 20 , Name = "Name8",},
+        new A(){ Key = 9 , No = 20 , Name = "Name9",},
 };
 
 // テストデータB
@@ -51,3 +51,23 @@ Console.Write("Left Join:");
 listTest2.ForEach(a => Console.Write(","+a.Name));
 Console.WriteLine("");
 
+
+var group = (
+        from a in listA
+        group a by a.No into aGroup
+        select aGroup
+).ToList();
+
+// デバッグ出力
+// group :,10[ ,Name1,Name2,Name3,Name4,Name5 ],20[ ,Name6,Name7,Name8,Name9 ]
+Console.Write("group :");
+foreach(var a in group)
+{
+        Console.Write(","+ a.Key + "[ ");
+        foreach(var b in a)
+        {
+                Console.Write(","+ b.Name);                
+        }
+        Console.Write(" ]");
+}
+Console.WriteLine("");
