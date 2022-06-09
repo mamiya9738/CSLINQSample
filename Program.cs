@@ -13,11 +13,11 @@ var listA = new List<A>(){
 
 // テストデータB
 var listB = new List<A>(){
-        new A(){ Key = 1 , Name = "Name1'",},
-        new A(){ Key = 2 , Name = "Name2'",},
-        new A(){ Key = 3 , Name = "Name3'",},
-        new A(){ Key = 4 , Name = "Name4'",},
-        new A(){ Key = 5 , Name = "Name5'",},
+        new A(){ Key = 1 , No = 20 ,Name = "Name1'",},
+        new A(){ Key = 2 , No = 20 ,Name = "Name2'",},
+        new A(){ Key = 3 , No = 20 ,Name = "Name3'",},
+        new A(){ Key = 4 , No = 40 ,Name = "Name4'",},
+        new A(){ Key = 5 , No = 40 ,Name = "Name5'",},
 };
 
 // A And B かつ 3の倍数の値のみを取得する
@@ -51,6 +51,8 @@ Console.Write("Left Join:");
 listTest2.ForEach(a => Console.Write(","+a.Name));
 Console.WriteLine("");
 
+//GroupBy
+
 var group = 
         from a in listA
         group a by a.No into aGroup
@@ -70,7 +72,6 @@ foreach(var a in group)
 }
 Console.WriteLine("");
 
-
 var orderby = 
         from a in listA
         orderby a.No
@@ -84,3 +85,26 @@ foreach (var a in orderby)
         Console.Write("[" +a.No + ","+ a.Name + "]");                        
 }
 Console.WriteLine("");
+
+
+
+List<A> aa = new List<A>(){
+        new A(){ Key = 1,Name="aaa1",No =10},
+        new B(){ Key = 2,Name="bbb1",No =30,Type = "Type-B1"},
+        new A(){ Key = 3,Name="aaa2",No =11},
+        new B(){ Key = 4,Name="bbb2",No =31,Type = "Type-B2"},
+        new A(){ Key = 5,Name="aaa3",No =12},
+        new B(){ Key = 6,Name="bbb3",No =32,Type = "Type-B2"},
+};
+
+foreach(var item in aa)
+{
+        var msg = item switch
+        {
+                // switch式でクラスの判定ができる。
+                // 親を上に書くと全て親でマッチする
+                B => ((B)item).Type,
+                _ => item.Name,
+        };
+        Console.WriteLine(msg);
+}
