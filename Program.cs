@@ -34,6 +34,8 @@ Console.Write("Inner Join:");
 listTest.ForEach(a => Console.Write(","+a.Name));
 Console.WriteLine("");
 
+
+// Left Join
 // A And B かつ 3の倍数の値のみを取得する
 var listTest2 =  ( from right in listA
              // Left Join
