@@ -20,12 +20,11 @@ var listB = new List<A>(){
         new A(){ Key = 5 , No = 40 ,Name = "Name5'",},
 };
 
-// A And B かつ 3の倍数の値のみを取得する
+// Inner Join
 var listTest =  ( from right in listA
              // Inner Join
              join left in listB
             on right.Key equals left.Key
-        //    where right.Key % 3 == 0
             select right).ToList();
 
 // デバッグ出力
