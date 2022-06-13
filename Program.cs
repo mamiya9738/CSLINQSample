@@ -88,6 +88,7 @@ foreach (var a in orderby)
 Console.WriteLine("");
 
 
+// switch文で型比較
 
 List<A> aa = new List<A>(){
         new A(){ Key = 1,Name="aaa1",No =10},
@@ -109,3 +110,6 @@ foreach(var item in aa)
         };
         Console.WriteLine(msg);
 }
+
+
+
