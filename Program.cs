@@ -53,8 +53,7 @@ listTest2.ForEach(a => Console.Write(","+a.Name));
 Console.WriteLine("");
 
 //GroupBy
-
-var group = 
+var groupQuery = 
         from a in listA
         group a by a.No into aGroup
         select aGroup;
@@ -62,7 +61,7 @@ var group =
 // デバッグ出力
 // group :,20[ ,Name1,Name3,Name5,Name7,Name9 ],30[ ,Name2,Name4,Name6,Name8 ]
 Console.Write("group :");
-foreach(var a in group)
+foreach(var a in groupQuery)
 {
         Console.Write(","+ a.Key + "[ ");
         foreach(var b in a)
@@ -73,7 +72,7 @@ foreach(var a in group)
 }
 Console.WriteLine("");
 
-var orderby = 
+var orderbyQuery = 
         from a in listA
         orderby a.No
         select a;
@@ -81,11 +80,32 @@ var orderby =
 // デバッグ出力
 // orderby :[20,Name1][20,Name3][20,Name5][20,Name7][20,Name9][30,Name2][30,Name4][30,Name6][30,Name8]
 Console.Write("orderby :");
-foreach (var a in orderby)
+foreach (var a in orderbyQuery)
 {
         Console.Write("[" +a.No + ","+ a.Name + "]");                        
 }
 Console.WriteLine("");
+
+// 複問合せ
+var query = from a in groupQuery
+            join b in listB
+            on new { No = a.Key, Key = 1} equals new {No = b.No,Key =b.Key}
+            select a;
+
+// デバッグ出力
+// groupSelect :,20[ ,Name1,Name3,Name5,Name7,Name9 ]
+Console.Write("groupSelect :");
+foreach(var a in query)
+{
+        Console.Write(","+ a.Key + "[ ");
+        foreach(var b in a)
+        {
+                Console.Write(","+ b.Name);                
+        }
+        Console.Write(" ]");
+}
+Console.WriteLine("");
+
 
 
 // switch文で型比較
