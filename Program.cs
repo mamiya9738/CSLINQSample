@@ -86,7 +86,7 @@ foreach (var a in orderbyQuery)
 }
 Console.WriteLine("");
 
-// 複問合せ
+// 複問合せ的な使い方
 var query = from a in groupQuery
             join b in listB
             on new { No = a.Key, Key = 1} equals new {No = b.No,Key =b.Key}
@@ -109,7 +109,6 @@ Console.WriteLine("");
 
 
 // switch文で型比較
-
 List<A> aa = new List<A>(){
         new A(){ Key = 1,Name="aaa1",No =10},
         new B(){ Key = 2,Name="bbb1",No =30,Type = "Type-B1"},
