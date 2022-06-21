@@ -35,13 +35,12 @@ Console.WriteLine("");
 
 
 // Left Join
-// A And B かつ 3の倍数の値のみを取得する
+// A And B 
 var listTest2 =  ( from right in listA
              // Left Join
              join left in listB
             on right.Key equals left.Key into tJoin
              from tj in tJoin.DefaultIfEmpty() 
-        //    where tj.Key % 3 == 0
             select right).ToList();
 
 
