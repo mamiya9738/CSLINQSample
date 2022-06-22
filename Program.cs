@@ -105,7 +105,6 @@ foreach(var a in query)
 }
 Console.WriteLine("");
 
-
 // switch文で親子の型比較
 List<A> aa = new List<A>(){
         new A(){ Key = 1,Name="aaa1",No =10},
