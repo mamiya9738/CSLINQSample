@@ -33,7 +33,6 @@ Console.Write("Inner Join:");
 listTest.ForEach(a => Console.Write(","+a.Name));
 Console.WriteLine("");
 
-
 // Left Join
 // A And B 
 var listTest2 =  ( from right in listA
