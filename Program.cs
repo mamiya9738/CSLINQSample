@@ -123,8 +123,22 @@ foreach(var item in aa)
                 B => ((B)item).Type,
                 _ => item.Name,
         };
-        Console.WriteLine(msg);
+        Console.Write(msg +",");
 }
+Console.WriteLine("");
 
+// in句の代わり
+// in句がwhereとして使えないので、Containsを使う
+int[] inList = {1,3,5,7,9}; 
+var orQuery = from a in listA
+            where inList.Contains(a.Key)
+            select a;
 
+// in句 :Name1,Name3,Name5,Name7,Name9,
 
+Console.Write("in句:");
+foreach(var item in orQuery)
+{
+    Console.Write(item.Name +",");
+}
+Console.WriteLine("");
