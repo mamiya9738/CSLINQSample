@@ -134,8 +134,8 @@ var orQuery = from a in listA
             where inList.Contains(a.Key)
             select a;
 
+// デバッグ出力
 // in句 :Name1,Name3,Name5,Name7,Name9,
-
 Console.Write("in句:");
 foreach(var item in orQuery)
 {
