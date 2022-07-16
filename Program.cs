@@ -68,6 +68,7 @@ foreach(var a in groupQuery)
         }
         Console.Write(" ]");
 }
+
 Console.WriteLine("");
 
 var orderbyQuery = 
