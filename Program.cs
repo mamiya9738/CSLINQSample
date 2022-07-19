@@ -126,6 +126,7 @@ foreach(var item in aa)
         };
         Console.Write(msg +",");
 }
+
 Console.WriteLine("");
 
 // in句の代わり
